@@ -1,1 +1,43 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cancionero Retro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="casetera">
+    <div class="ventana">
+      <p id="tituloCancion">Selecciona una canción</p>
+    </div>
+    <div class="controles">
+      <audio id="reproductor" controls>
+        <source id="audioSource" src="" type="audio/mpeg">
+        Tu navegador no soporta el audio HTML5.
+      </audio>
+    </div>
+    <div class="lista">
+      <button onclick="reproducirCancion('audio/cancion1.mp3', 'Canción 1')">Canción 1</button>
+      <button onclick="reproducirCancion('audio/cancion2.mp3', 'Canción 2')">Canción 2</button>
+      <button onclick="reproducirCancion('audio/cancion3.mp3', 'Canción 3')">Canción 3</button>
+      <button onclick="reproducirCancion('audio/cancion4.mp3', 'Canción 4')">Canción 4</button>
+      <button onclick="reproducirCancion('audio/cancion5.mp3', 'Canción 5')">Canción 5</button>
+    </div>
+  </div>
+
+  <script>
+    function reproducirCancion(ruta, titulo) {
+      const audio = document.getElementById('reproductor');
+      const source = document.getElementById('audioSource');
+      const tituloTexto = document.getElementById('tituloCancion');
+      source.src = ruta;
+      audio.load();
+      audio.play();
+      tituloTexto.textContent = titulo;
+    }
+  </script>
+</body>
+</html>
+
